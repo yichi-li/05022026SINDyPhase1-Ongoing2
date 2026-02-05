@@ -14,10 +14,7 @@ source .venv/bin/activate
 # 2) Install dependencies
 pip install -r requirements.txt
 
-# 3) Run a single Phase 1 experiment
-python run_phase1.py
-
-# 4) Run the batch grid (recommended for reproducibility)
+# 3) Run the batch grid (recommended for reproducibility)
 python run_phase1_batch.py
 ```
 
