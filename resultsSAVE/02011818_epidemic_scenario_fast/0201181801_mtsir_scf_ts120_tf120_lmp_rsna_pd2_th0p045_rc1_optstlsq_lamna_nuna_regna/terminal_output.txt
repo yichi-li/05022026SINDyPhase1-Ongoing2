@@ -1,0 +1,97 @@
+>>> run_phase1 started
+======================================================================
+SINDy input states: ['S', 'I']
+SINDy input shape: X_fit=(121, 3), t_fit=(121,)
+SINDy reduced input shape: X_fit_used=(121, 2)
+Note: R is reconstructed from R = 1 - S - I (not learned).
+SINDy fit time range: t_fit[0]=0.00, t_fit[-1]=120.00, dt=1.0
+
+Ground-truth model (fractions, no forcing):
+======================================================================
+dS/dt = -0.600 * S * I
+dI/dt =  0.600 * S * I - 0.200 * I
+dR/dt =  0.200 * I
+Note: reduced coords -> R is not learned by SINDy.
+      We derive dR/dt = -(dS/dt + dI/dt) from learned S/I.
+======================================================================
+Active model_type=sir, reduced_coords=True, optimizer=stlsq, library_mode=polynomial, restricted_set=basic, poly_degree=2, threshold=0.045
+Phase 1 evaluates derivative recovery, not long-term rollouts.
+MSE is computed only on dS/dt and dI/dt (R is derived, not learned).
+Plot 1: MSE of dX/dt vs noise level (all time points aggregated).
+
+======================================================================
+Feature Library (Actual Library Used For Fitting):
+======================================================================
+Feature library contains 5 candidate terms:
+Contains S*I (or x0*x2) term: yes
+S*I-related features (first 10): ['S I']
+
+First 30 feature examples:
+    1. S
+    2. I
+    3. S^2
+    4. S I
+    5. I^2
+
+Note: reduced coords used; R is derived from 1 - S - I
+Note: x0=S, x1=I
+======================================================================
+
+Learned SINDy model (noise level=0.0):
+======================================================================
+(x0)' = -0.592 x0 x1
+(x1)' = -0.194 x1 + 0.580 x0 x1
+Derived: dR/dt = -(dS/dt + dI/dt)
+Derived: dR/dt = -(dS/dt + dI/dt) = -(-0.592 x0 x1) - (-0.194 x1 + 0.580 x0 x1)
+======================================================================
+
+Learned SINDy model (noise level=0.001):
+======================================================================
+(x0)' = -0.592 x0 x1
+(x1)' = -0.194 x1 + 0.580 x0 x1
+Derived: dR/dt = -(dS/dt + dI/dt)
+Derived: dR/dt = -(dS/dt + dI/dt) = -(-0.592 x0 x1) - (-0.194 x1 + 0.580 x0 x1)
+======================================================================
+
+Learned SINDy model (noise level=0.005):
+======================================================================
+(x0)' = -0.592 x0 x1
+(x1)' = -0.194 x1 + 0.581 x0 x1
+Derived: dR/dt = -(dS/dt + dI/dt)
+Derived: dR/dt = -(dS/dt + dI/dt) = -(-0.592 x0 x1) - (-0.194 x1 + 0.581 x0 x1)
+======================================================================
+
+Learned SINDy model (noise level=0.01):
+======================================================================
+(x0)' = -0.593 x0 x1
+(x1)' = -0.193 x1 + 0.578 x0 x1
+Derived: dR/dt = -(dS/dt + dI/dt)
+Derived: dR/dt = -(dS/dt + dI/dt) = -(-0.593 x0 x1) - (-0.193 x1 + 0.578 x0 x1)
+======================================================================
+
+Learned SINDy model (noise level=0.05):
+======================================================================
+(x0)' = -0.578 x0 x1
+(x1)' = -0.196 x1 + 0.578 x0 x1
+Derived: dR/dt = -(dS/dt + dI/dt)
+Derived: dR/dt = -(dS/dt + dI/dt) = -(-0.578 x0 x1) - (-0.196 x1 + 0.578 x0 x1)
+======================================================================
+
+Generating comparison plots...
+Note: reduced coords -> plots show R reconstructed from R = 1 - S - I.
+      A separate R-consistency plot compares algebraic R vs integrated dR/dt.
+  - Plotting input data verification...
+    Note: R curves in fig2 are reconstructed via R = 1 - S - I (not learned).
+  - Plotting trajectory comparison...
+  - Plotting error over time...
+  - Plotting R consistency check (algebraic vs dynamic)...
+  - Plotting hybrid rollout (teacher-forced → free)...
+
+Plot 5a: FREE ROLLOUT (noise=0.0 only; model-only integration).
+[OK] Free rollout completed full horizon
+
+Plot 5b: FREE ROLLOUT (all noise levels; model-only integration).
+
+======================================================================
+>>> run_phase1 finished
+======================================================================

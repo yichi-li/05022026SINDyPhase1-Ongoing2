@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+.Rhistory
+
+# Experiment outputs (keep selected result folders for review)
+resultsSAVE/*
+!resultsSAVE/02011754_epidemic_scenario_slow/
+!resultsSAVE/02011754_epidemic_scenario_slow/**
+!resultsSAVE/02011814_epidemic_scenario_medium/
+!resultsSAVE/02011814_epidemic_scenario_medium/**
+!resultsSAVE/02011818_epidemic_scenario_fast/
+!resultsSAVE/02011818_epidemic_scenario_fast/**
+*.log
