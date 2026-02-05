@@ -29,7 +29,7 @@ These outputs can be large, so they are typically excluded from version control.
 
 ## Configuration (Environment Variables)
 
-You can control experiments with environment variables (see `run_phase1.py`):
+You can control experiments with environment variables (see `run_phase1_batch.py`):
 
 - `PHASE1_MODEL_TYPE`: `sir` or `seir`
 - `PHASE1_SCENARIO`: `fast`, `medium`, `slow`
